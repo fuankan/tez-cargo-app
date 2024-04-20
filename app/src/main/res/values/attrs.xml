@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="windowColor" format="color"/>
+    <attr name="surfaceColor" format="color"/>
+    <attr name="surfaceDarkColor" format="color"/>
+
+    <attr name="textPrimaryColor" format="color"/>
+    <attr name="textSecondaryColor" format="color"/>
+    <attr name="textTernaryColor" format="color"/>
+    <attr name="textCounterColor" format="color"/>
+    <attr name="errorTextColor" format="color"/>
+
+    <attr name="greenEnabledBtnColor" format="color"/>
+    <attr name="greenTouchedBtnColor" format="color"/>
+
+    <attr name="appBtnColor" format="color"/>
+    <attr name="appDisabledBtnColor" format="color"/>
+
+    <attr name="iconColor" format="color"/>
+    <attr name="highlightedIconColor" format="color"/>
+    <attr name="errorIconColor" format="color"/>
+    <attr name="dividerColor" format="color"/>
+
+    <attr name="radioButtonStyle" format="reference" />
+</resources>

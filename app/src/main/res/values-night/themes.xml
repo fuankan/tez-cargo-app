@@ -1,0 +1,64 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TezCargo" parent="ChiliDesignTheme">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="windowColor">@color/black_1</item>
+        <item name="surfaceColor">@color/black_3</item>
+        <item name="surfaceDarkColor">@color/black_1</item>
+
+        <item name="textPrimaryColor">@color/white_1</item>
+        <item name="textSecondaryColor">@color/gray_3</item>
+        <item name="textTernaryColor">@color/gray_1</item>
+        <item name="textCounterColor">?attr/windowColor</item>
+        <item name="errorTextColor">@color/red_1</item>
+
+        <item name="iconColor">@color/gray_3</item>
+        <item name="highlightedIconColor">@color/white_1</item>
+        <item name="errorIconColor">@color/white_1</item>
+
+        <item name="appBtnColor">@color/green_1</item>
+        <item name="appDisabledBtnColor">@color/green_2</item>
+
+        <item name="greenEnabledBtnColor">@color/green_1</item>
+        <item name="greenTouchedBtnColor">@color/green_4</item>
+
+        <item name="dividerColor">@color/black_4</item>
+        <item name="colorPrimary">@color/black_3</item>
+        <item name="colorPrimaryDark">@color/black_1</item>
+        <item name="colorAccent">@color/blue_5</item>
+        <item name="android:textColorSecondary">@color/white_1</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:windowBackground">?attr/surfaceDarkColor</item>
+        <item name="android:navigationBarColor">?attr/windowColor</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="radioButtonStyle">@style/AppRadioButton</item>
+        <item name="ChiliPrimaryButtonCornerRadius">@dimen/view_12dp</item>
+        <item name="ChiliAdditionalButtonTextAllCaps">false</item>
+        <item name="ChiliAdditionalButtonBackgroundActive">@color/gray_5_black_5</item>
+        <item name="ChiliAdditionalButtonBorderColor">@android:color/transparent</item>
+
+        <item name="ChiliInputViewCursorColor">@color/blue_5</item>
+        <item name="ChiliLinkTextColor">@color/blue_5</item>
+        <item name="ChiliCheckBoxCheckedColor">@color/blue_5</item>
+        <item name="ChiliRadioButtonCheckedColor">@color/blue_5</item>
+        <item name="ChiliSwitchBoxCheckedBg">@color/blue_5_alpha_50</item>
+        <item name="ChiliSwitchBoxCheckedToggleColor">@color/blue_5</item>
+        <item name="ChiliAccentButtonBackgroundActive">@color/blue_5</item>
+        <item name="ChiliAccentButtonBackgroundDisabled">@color/blue_5_alpha_50</item>
+        <item name="ChiliOtpInputViewItemActiveBorder">@color/blue_5</item>
+
+        <item name="ChiliPrimaryButtonBackgroundActive">@color/blue_2</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/blue_5_alpha_50</item>
+
+        <item name="ChiliAdditionalButtonCornerRadius">@dimen/view_12dp</item>
+        <item name="ChiliAdditionalButtonTextColorActive">@color/black_4_gray_5</item>
+    </style>
+
+    <style name="AppRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="colorAccent">@color/blue_5</item>
+        <item name="colorControlNormal">@color/gray_3</item>
+    </style>
+
+</resources>

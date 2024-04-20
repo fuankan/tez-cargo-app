@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Tez Cargo</string>
+    <string name="title_main">Главная</string>
+    <string name="title_auth">Авторизация</string>
+    <string name="title_packages">Посылки</string>
+    <string name="title_menu">Меню</string>
+    <string name="title_login">Вход</string>
+
+    <string name="error_no_internet">Отсутствует интернет-соединение</string>
+    <string name="error_timeout">Превышено время ожидания. Попробуйте позже.</string>
+    <string name="error_unknown">Что-то пошло не так. Попробуйте позже.</string>
+    <string name="error_server">Ошибка сервера. Попробуйте позже.</string>
+
+    <string name="error_invalid_email">Неверный формат электронной почты</string>
+    <string name="email">Электронная почта</string>
+    <string name="enter_email">Введите почту</string>
+
+    <string name="enter_password">Введите пароль</string>
+
+    <string name="register">Зарегистрироваться</string>
+    <string name="registration">Регистрация</string>
+    <string name="login">Войти</string>
+
+    <string name="not_registered">Еще не зарегистрированы?</string>
+
+    <string name="forgot_password">Забыли пароль?</string>
+
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="middle_name">Отчество</string>
+    <string name="inn">ИНН</string>
+    <string name="phone">Телефон</string>
+    <string name="password">Пароль</string>
+    <string name="required_field">Обязательное поле</string>
+    <string name="not_required_field">Необязательное поле</string>
+
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground"
+    tools:context=".ui.auth.login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?ChiliSurfaceBackground"
+        android:paddingBottom="@dimen/padding_16dp">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/view_96dp"
+            android:layout_height="@dimen/view_96dp"
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:src="@drawable/ic_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:text="@string/title_login"
+            android:textAppearance="@style/Chili.H5.Primary.Bold"
+            android:textColor="@color/blue_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_email"
+            style="@style/Chili.InputViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/enter_email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_login" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_password"
+            style="@style/Chili.InputViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/enter_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/biv_email" />
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_48dp"
+            android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/biv_password" />
+
+        <TextView
+            android:id="@+id/tv_not_registered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:text="@string/not_registered"
+            android:textAppearance="@style/Chili.H7.Primary"
+            android:textColor="@color/blue_1_alpha_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_4dp"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:layout_marginEnd="@dimen/padding_16dp"
+            android:autoLink="web"
+            android:text="@string/register"
+            style="@style/Chili.H7.Primary.Bold"
+            android:textColor="@color/blue_5"
+            android:textColorLink="@color/blue_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/tv_not_registered"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
