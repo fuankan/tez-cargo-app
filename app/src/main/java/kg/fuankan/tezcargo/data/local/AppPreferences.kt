@@ -34,10 +34,27 @@ class AppPreferences(context: Context) {
             }
         }
 
+    var role: String?
+        get() {
+            return prefs.getString(ROLE, "")
+        }
+        set(value) {
+            prefs.edit {
+                putString(ROLE, value)
+            }
+        }
+
+    fun clear() {
+        prefs.edit {
+            clear()
+        }
+    }
+
     companion object {
         const val PREF_NAME = "kg.fuankan.tezcargo"
         const val TOKEN = "token"
         const val REFRESH_TOKEN = "refresh_token"
+        const val ROLE = "role"
 
         @SuppressLint("ConstantLocale")
         private val dateFormat = SimpleDateFormat("dd:MM:yyyy HH:mm:ss", Locale("ru"))

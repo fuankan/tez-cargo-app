@@ -15,6 +15,10 @@
             android:id="@+id/action_loginFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
 
+        <action
+            android:id="@+id/action_loginFragment_to_resetFragment"
+            app:destination="@id/resetFragment" />
+
     </fragment>
 
     <fragment
@@ -22,5 +26,11 @@
         android:name="kg.fuankan.tezcargo.ui.auth.register.RegisterFragment"
         android:label="RegistrationFragment"
         tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/resetFragment"
+        android:name="kg.fuankan.tezcargo.ui.auth.reset.ResetFragment"
+        android:label="ResetFragment"
+        tools:layout="@layout/fragment_reset" />
 
 </navigation>

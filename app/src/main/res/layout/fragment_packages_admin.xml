@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.admin.packages.PackagesAdminFragment"
+    android:paddingVertical="@dimen/padding_16dp">
+
+    <Button
+        android:id="@+id/btn_add_cargo"
+        style="@style/Chili.ButtonStyle.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_cargo"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_find"
+        style="@style/Chili.ButtonStyle.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/find_cargo"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_cargo" />
+
+    <TextView
+        android:id="@+id/tv_cargo_list"
+        style="@style/Chili.H5.Primary.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:text="@string/cargo_list"
+        android:textColor="@color/blue_5"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_find" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/padding_16dp"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cargo_list"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №1"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №2"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №3"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №4"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №5"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №6"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №7"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №8"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №9"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Груз №10"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:title=" " />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

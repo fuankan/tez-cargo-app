@@ -1,4 +1,4 @@
-package kg.fuankan.tezcargo.ui.main
+package kg.fuankan.tezcargo.ui.main.admin
 
 import android.content.Context
 import android.content.Intent
@@ -10,14 +10,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.design2.chili2.view.navigation_components.ChiliToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.R
-import kg.fuankan.tezcargo.databinding.ActivityMainBinding
+import kg.fuankan.tezcargo.databinding.ActivityMainAdminBinding
 import kg.fuankan.tezcargo.ui.base.BaseNavigatedActivity
 
 @AndroidEntryPoint
-class MainActivity : BaseNavigatedActivity<MainVM, ActivityMainBinding>(
-    MainVM::class.java,
-    R.id.nav_host_fragment_activity_main,
-    ActivityMainBinding::inflate
+class MainAdminActivity : BaseNavigatedActivity<MainAdminVM, ActivityMainAdminBinding>(
+    MainAdminVM::class.java,
+    R.id.nav_host_fragment_activity_admin_main,
+    ActivityMainAdminBinding::inflate
 ) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MainActivity : BaseNavigatedActivity<MainVM, ActivityMainBinding>(
         vb.toolbar.run{
             initToolbar(
                 ChiliToolbar.Configuration(
-                    this@MainActivity,
+                    this@MainAdminActivity,
                     onNavigateUpClick = { onBackPressed() },
                     isNavigateUpButtonEnabled = false
                 ))
@@ -36,7 +36,7 @@ class MainActivity : BaseNavigatedActivity<MainVM, ActivityMainBinding>(
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_packages_admin, R.id.navigation_menu_admin
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -46,7 +46,7 @@ class MainActivity : BaseNavigatedActivity<MainVM, ActivityMainBinding>(
     companion object {
         
         fun start(context: Context) {
-            val intent = Intent(context, MainActivity::class.java)
+            val intent = Intent(context, MainAdminActivity::class.java)
             context.startActivity(intent)
         }
     }

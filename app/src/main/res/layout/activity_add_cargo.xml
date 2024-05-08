@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_cargo_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground"
+    tools:context=".ui.cargo.add.AddCargoActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_16dp">
+
+        <TextView
+            style="@style/Chili.H5.Primary.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_cargo"
+            android:textColor="@color/blue_5" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="@string/price" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="@string/range" />
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/loading_date"
+            android:id="@+id/uiv_loading_date"
+            android:layout_marginTop="@dimen/padding_16dp"
+            tools:text="" />
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/unloading_date"
+            android:id="@+id/uiv_unloading_date"
+            android:layout_marginTop="@dimen/padding_16dp"
+            tools:text="" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_fact_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/fact_address"
+            tools:text="" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/city" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/state" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/country" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="@string/phone"
+            android:inputType="phone"/>
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:id="@+id/uiv_choose_storage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/choose_storage"
+            android:layout_marginTop="@dimen/padding_16dp" />
+
+        <Button
+            android:id="@+id/btn_add_cargo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:text="@string/add_cargo" />
+
+    </LinearLayout>
+
+</ScrollView>

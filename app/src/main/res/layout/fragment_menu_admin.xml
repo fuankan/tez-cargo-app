@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.admin.menu.MenuAdminFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:paddingTop="@dimen/padding_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:subtitle="Список водителей"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:subtitle="Статистика"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:subtitle="Изменить пароль"
+                app:title=" " />
+
+            <com.design2.chili2.view.cells.InfoCellView
+                android:id="@+id/icv_cargo_id4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:subtitle="Выйти"
+                app:title=" " />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

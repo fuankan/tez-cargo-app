@@ -3,7 +3,6 @@ package kg.fuankan.tezcargo.ui.auth
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.R
 import kg.fuankan.tezcargo.databinding.ActivityAuthBinding
@@ -11,7 +10,7 @@ import kg.fuankan.tezcargo.domain.model.AuthEvent
 import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.extensions.showToast
 import kg.fuankan.tezcargo.ui.base.BaseNavigatedActivity
-import kg.fuankan.tezcargo.ui.main.MainActivity
+import kg.fuankan.tezcargo.ui.main.admin.MainAdminActivity
 
 @AndroidEntryPoint
 class AuthActivity : BaseNavigatedActivity<AuthVM, ActivityAuthBinding>(
@@ -32,7 +31,7 @@ class AuthActivity : BaseNavigatedActivity<AuthVM, ActivityAuthBinding>(
     }
 
     private fun finishAuth() {
-        MainActivity.start(this)
+        MainAdminActivity.start(this)
         finish()
     }
 

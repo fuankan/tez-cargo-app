@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_packages_admin"
         android:icon="@drawable/ic_dashboard"
         android:title="@string/title_packages" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_menu_admin"
         android:icon="@drawable/ic_menu"
         android:title="@string/title_menu" />
 

@@ -7,6 +7,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.databinding.ActivitySplashBinding
 import kg.fuankan.tezcargo.ui.auth.AuthActivity
 import kg.fuankan.tezcargo.ui.base.BaseActivity
+import kg.fuankan.tezcargo.ui.main.admin.MainAdminActivity
 
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint

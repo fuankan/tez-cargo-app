@@ -11,7 +11,7 @@ import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.extensions.showToast
 import kg.fuankan.tezcargo.ui.auth.AuthVM
 import kg.fuankan.tezcargo.ui.base.BaseNavigatedFragment
-import kg.fuankan.tezcargo.ui.main.MainActivity
+import kg.fuankan.tezcargo.ui.main.admin.MainAdminActivity
 
 @AndroidEntryPoint
 class RegisterFragment : BaseNavigatedFragment<AuthVM, FragmentRegisterBinding>(
@@ -37,7 +37,7 @@ class RegisterFragment : BaseNavigatedFragment<AuthVM, FragmentRegisterBinding>(
             btnRegister.isEnabled = false
 
             btnRegister.setOnSingleClickListener {
-                MainActivity.start(requireContext())
+                MainAdminActivity.start(requireContext())
             }
         }
     }

@@ -21,7 +21,15 @@ android {
     }
 
     buildTypes {
+        var domain = "\"\""
+
+        debug {
+            buildConfigField("String", "BASE_URL", domain)
+        }
+
         release {
+            domain = "\"\""
+            buildConfigField("String", "BASE_URL", domain)
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
@@ -34,6 +42,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }

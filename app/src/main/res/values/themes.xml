@@ -49,6 +49,9 @@
 
         <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_12dp</item>
+
+        <item name="ChiliCellViewElevation">@dimen/elevation_4dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
     </style>
 
     <style name="Theme.TezCargo" parent="Base.Theme.TezCargo" />

@@ -11,6 +11,7 @@ import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.extensions.showToast
 import kg.fuankan.tezcargo.ui.auth.AuthVM
 import kg.fuankan.tezcargo.ui.base.BaseNavigatedFragment
+import kg.fuankan.tezcargo.ui.main.admin.MainAdminActivity
 
 @AndroidEntryPoint
 class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
@@ -36,8 +37,16 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
 
             btnLogin.isEnabled = false
 
+            btnLogin.setOnSingleClickListener {
+                MainAdminActivity.start(requireContext())
+            }
+
             tvRegister.setOnSingleClickListener {
                 navigateTo(LoginFragmentDirections.actionLoginFragmentToRegistrationFragment())
+            }
+
+            tvForgotPassword.setOnSingleClickListener {
+                navigateTo(LoginFragmentDirections.actionLoginFragmentToResetFragment())
             }
         }
     }

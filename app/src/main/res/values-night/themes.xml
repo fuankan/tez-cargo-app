@@ -54,6 +54,9 @@
 
         <item name="ChiliAdditionalButtonCornerRadius">@dimen/view_12dp</item>
         <item name="ChiliAdditionalButtonTextColorActive">@color/black_4_gray_5</item>
+
+        <item name="ChiliCellViewElevation">@dimen/elevation_4dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
     </style>
 
     <style name="AppRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">

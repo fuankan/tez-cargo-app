@@ -2,7 +2,7 @@
     <string name="app_name">Tez Cargo</string>
     <string name="title_main">Главная</string>
     <string name="title_auth">Авторизация</string>
-    <string name="title_packages">Посылки</string>
+    <string name="title_packages">Грузоперевозки</string>
     <string name="title_menu">Меню</string>
     <string name="title_login">Вход</string>
 
@@ -14,12 +14,15 @@
     <string name="error_invalid_email">Неверный формат электронной почты</string>
     <string name="email">Электронная почта</string>
     <string name="enter_email">Введите почту</string>
+    <string name="otp">Одноразовый код</string>
 
     <string name="enter_password">Введите пароль</string>
 
     <string name="register">Зарегистрироваться</string>
     <string name="registration">Регистрация</string>
     <string name="login">Войти</string>
+    <string name="further">Дальше</string>
+    <string name="password_reset">Восстановление пароля</string>
 
     <string name="not_registered">Еще не зарегистрированы?</string>
 
@@ -33,5 +36,24 @@
     <string name="password">Пароль</string>
     <string name="required_field">Обязательное поле</string>
     <string name="not_required_field">Необязательное поле</string>
+
+    <string name="add_cargo">Добавить груз</string>
+    <string name="cargo_list">Список грузов</string>
+    <string name="cargo">Груз</string>
+    <string name="price">Цена</string>
+    <string name="range">Расстояние</string>
+    <string name="fact_address">Фактический адрес</string>
+    <string name="city">Город</string>
+    <string name="state">Штат / Провинция</string>
+    <string name="country">Страна</string>
+    <string name="choose_storage">Выберите склад</string>
+    <string name="storage">Склад</string>
+    <string name="loading_date">Дата погрузки</string>
+    <string name="unloading_date">Дата разгрузки</string>
+    <string name="loading_unloading_date">Дата погрузки/разгрузки</string>
+    <string name="status">Статус</string>
+    <string name="cargo_desc">Описание груза</string>
+    <string name="save">Сохранить</string>
+    <string name="find_cargo">Найти груз</string>
 
 </resources>
