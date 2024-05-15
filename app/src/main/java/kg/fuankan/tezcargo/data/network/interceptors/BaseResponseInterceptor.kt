@@ -1,7 +1,9 @@
 package kg.fuankan.tezcargo.data.network.interceptors
 
 import android.content.Context
-import kg.fuankan.tezcargo.R
+import com.google.gson.Gson
+import kg.fuankan.tezcargo.data.models.ApiResponse
+import kg.fuankan.tezcargo.data.network.util.ApiException
 import kg.fuankan.tezcargo.data.network.util.PasswordMismatchException
 import kg.fuankan.tezcargo.data.network.util.UserNotAllowedException
 import kg.fuankan.tezcargo.data.network.util.UserNotFoundException
@@ -23,8 +25,13 @@ abstract class BaseResponseInterceptor: Interceptor {
                 bodyString.contains("Admin-user not allowed") ->
                     throw UserNotAllowedException("Admin-user not allowed")
                 else -> {
+                    val gson = Gson()
+                    val apiResponse = gson.fromJson(bodyString, ApiResponse::class.java)
+                    throw ApiException(apiResponse.message ?: "Unknown error")
                 }
             }
+        } else if (response.code != 200) {
+            throw ApiException("Error: ${response.code} - ${response.message}")
         }
     }
 }

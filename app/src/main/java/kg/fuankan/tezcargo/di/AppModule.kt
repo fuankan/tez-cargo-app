@@ -18,6 +18,13 @@ import javax.inject.Singleton
 class AppModule {
 
     @Provides
+    fun provideContext(
+        @ApplicationContext context: Context,
+    ): Context {
+        return context
+    }
+
+    @Provides
     @Singleton
     fun provideServerErrorHandler(@ApplicationContext context: Context, appPreferences: AppPreferences)
             : ServerErrorHandler = ServerErrorHandlerImpl(context, appPreferences)

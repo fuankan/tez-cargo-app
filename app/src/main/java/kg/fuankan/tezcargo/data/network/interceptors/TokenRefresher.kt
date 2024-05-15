@@ -5,7 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.internal.LinkedTreeMap
 import kg.fuankan.tezcargo.BuildConfig
 import kg.fuankan.tezcargo.data.local.AppPreferences
-import kg.fuankan.tezcargo.data.models.Response
+import kg.fuankan.tezcargo.data.models.ApiResponse
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.Reader
@@ -39,8 +39,8 @@ class TokenRefresher @Inject constructor(private val prefs: AppPreferences) {
                 response.append(inputLine)
             }
             `in`.close()
-            val customResponse: Response<*>? = Gson().fromJson(response.toString(), Response::class.java )
-            val map = customResponse?.result as LinkedTreeMap<String, String>
+            val customResponse: ApiResponse<*>? = Gson().fromJson(response.toString(), ApiResponse::class.java )
+            val map = customResponse?.data as LinkedTreeMap<String, String>
 
             prefs.token = map["token"]
             prefs.refreshToken = map["refreshToken"]

@@ -1,9 +1,9 @@
 package kg.fuankan.tezcargo.data.models
 
-data class Response<T>(
-    var result: T? = null,
-    var code: Int? = null,
-    var message: String? = null
+data class ApiResponse<T>(
+    val data: T?,
+    val code: Int?,
+    val message: String?
 )
 
 enum class ResultCode{

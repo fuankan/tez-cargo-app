@@ -1,7 +1,9 @@
 package kg.fuankan.tezcargo.data.network.interceptors
 
 import com.google.gson.Gson
-import kg.fuankan.tezcargo.data.models.Response
+import com.google.gson.reflect.TypeToken
+import kg.fuankan.tezcargo.data.models.ApiResponse
+import kg.fuankan.tezcargo.data.network.util.ApiException
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -16,7 +18,8 @@ import javax.inject.Inject
 @Suppress("UNCHECKED_CAST")
 class ResponseConverterFactory @Inject constructor() : Converter.Factory() {
 
-    private val gsonConverterFactory: GsonConverterFactory = GsonConverterFactory.create(Gson())
+    private val gson: Gson = Gson()
+    private val gsonConverterFactory: GsonConverterFactory = GsonConverterFactory.create(gson)
 
     override fun responseBodyConverter(
         type: Type,
@@ -26,12 +29,12 @@ class ResponseConverterFactory @Inject constructor() : Converter.Factory() {
         val wrappedType = object : ParameterizedType {
             override fun getActualTypeArguments(): Array<Type> = arrayOf(type)
             override fun getOwnerType(): Type? = null
-            override fun getRawType(): Type = Response::class.java
+            override fun getRawType(): Type = ApiResponse::class.java
         }
         val gsonConverter: Converter<ResponseBody, *>? =
             gsonConverterFactory.responseBodyConverter(wrappedType, annotations, retrofit)
 
-        return ResponseBodyConverter(gsonConverter as Converter<ResponseBody, Response<Any?>>)
+        return ResponseBodyConverter(gson, gsonConverter as Converter<ResponseBody, ApiResponse<Any?>>, type)
     }
 
     override fun requestBodyConverter(
@@ -48,16 +51,28 @@ class ResponseConverterFactory @Inject constructor() : Converter.Factory() {
         )
     }
 
-    inner class ResponseBodyConverter<T>(private val converter: Converter<ResponseBody, Response<T?>>) :
-        Converter<ResponseBody, T?> {
+    inner class ResponseBodyConverter<T>(
+        private val gson: Gson,
+        private val converter: Converter<ResponseBody, ApiResponse<T?>>,
+        private val type: Type
+    ) : Converter<ResponseBody, T?> {
 
         @Throws(IOException::class)
         override fun convert(responseBody: ResponseBody): T? {
             val responseStr = responseBody.string()
             val contentType = responseBody.contentType()
-            val response = converter.convert(responseStr.toResponseBody(contentType))
 
-            return if(response?.result == null) null else response.result as T
+            val apiResponse = converter.convert(responseStr.toResponseBody(contentType))
+            if (apiResponse?.code != null && apiResponse.code != 200) {
+                throw ApiException(apiResponse.message ?: "Unknown error")
+            }
+
+            return if(apiResponse?.data != null) {
+                apiResponse.data
+            } else {
+                val directConverter = gson.fromJson<T>(responseStr, TypeToken.get(type).type)
+                directConverter
+            }
         }
     }
 }

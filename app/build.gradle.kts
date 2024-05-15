@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     kotlin("kapt")
     alias(libs.plugins.hiltPlugin)
+    alias(libs.plugins.serializationPlugin)
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -21,14 +22,13 @@ android {
     }
 
     buildTypes {
-        var domain = "\"\""
+        val domain = "\"http://10.0.2.2:8080\""
 
         debug {
             buildConfigField("String", "BASE_URL", domain)
         }
 
         release {
-            domain = "\"\""
             buildConfigField("String", "BASE_URL", domain)
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -71,6 +71,7 @@ dependencies {
     implementation(libs.preference)
     implementation(libs.lifeCycleRuntime)
     implementation(libs.lifeCycleService)
+    implementation(libs.kotlinSerialization)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

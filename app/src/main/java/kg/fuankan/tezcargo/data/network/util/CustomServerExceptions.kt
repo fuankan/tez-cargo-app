@@ -7,3 +7,4 @@ open class CustomServerException(open val description: String? = null, val error
 class PasswordMismatchException: CustomServerException()
 class UserNotFoundException(override val description: String?): CustomServerException()
 class UserNotAllowedException(override val description: String?): CustomServerException()
+class ApiException(message: String): IOException(message)

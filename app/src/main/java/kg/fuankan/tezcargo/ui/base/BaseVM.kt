@@ -2,6 +2,7 @@ package kg.fuankan.tezcargo.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kg.fuankan.tezcargo.data.network.util.ApiException
 import kg.fuankan.tezcargo.data.network.util.CustomServerException
 import kg.fuankan.tezcargo.data.network.util.ServerErrorHandler
 import kg.fuankan.tezcargo.domain.model.Event
@@ -70,6 +71,7 @@ open class BaseVM @Inject constructor() : ViewModel() {
         when (e) {
             is HttpException -> serverErrorHandler.onHttpError(e)
             is CustomServerException -> serverErrorHandler.onCustomServerError(e)
+            is ApiException -> serverErrorHandler.onCustomServerError(CustomServerException(e.message))
             else ->  serverErrorHandler.onUnknownError(e)
         }
     }

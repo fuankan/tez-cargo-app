@@ -38,7 +38,7 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
             btnLogin.isEnabled = false
 
             btnLogin.setOnSingleClickListener {
-                MainAdminActivity.start(requireContext())
+                vm.login(bivEmail.getInputText().trim(), bivPassword.getInputText().trim())
             }
 
             tvRegister.setOnSingleClickListener {
@@ -60,7 +60,7 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
         collectFlow(vm.event, {
             when (it) {
                 is AuthEvent.LoginSuccess -> {
-
+                    MainAdminActivity.start(requireContext())
                 }
                 is Event.Notification -> {
                     requireContext().showToast(it.text)

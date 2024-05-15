@@ -44,6 +44,16 @@ class AppPreferences(context: Context) {
             }
         }
 
+    var userId: String?
+        get() {
+            return prefs.getString(USER_ID, "")
+        }
+        set(value) {
+            prefs.edit {
+                putString(USER_ID, value)
+            }
+        }
+
     fun clear() {
         prefs.edit {
             clear()
@@ -55,6 +65,7 @@ class AppPreferences(context: Context) {
         const val TOKEN = "token"
         const val REFRESH_TOKEN = "refresh_token"
         const val ROLE = "role"
+        const val USER_ID = "user_id"
 
         @SuppressLint("ConstantLocale")
         private val dateFormat = SimpleDateFormat("dd:MM:yyyy HH:mm:ss", Locale("ru"))

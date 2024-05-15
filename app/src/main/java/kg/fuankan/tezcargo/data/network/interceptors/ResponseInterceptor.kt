@@ -10,10 +10,14 @@ class ResponseInterceptor @Inject constructor(): BaseResponseInterceptor() {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val response = chain.proceed(request)
-        val bodyString = response.body?.string()
-        val contentType = response.body?.contentType()
+        val responseBody = response.body
+        val bodyString = responseBody?.string()
+        val contentType = responseBody?.contentType()
 
         checkForCustomServerException(response, bodyString)
-        return response.newBuilder().body(bodyString!!.toResponseBody(contentType)).build()
+
+        val newResponseBody = bodyString?.toResponseBody(contentType) ?: responseBody
+
+        return response.newBuilder().body(newResponseBody).build()
     }
 }
