@@ -24,21 +24,26 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
     override fun setupViews() {
         super.setupViews()
         with(vb) {
+            btnLogin.isEnabled = false
 
             bivEmail.apply {
-                doAfterTextChanged { toggleButton() }
+                doAfterTextChanged {
+                    clearFieldError()
+                    toggleButton()
+                }
             }
 
             bivPassword.apply {
                 setupAsPasswordField()
-                doAfterTextChanged { toggleButton() }
+                doAfterTextChanged {
+                    clearFieldError()
+                    toggleButton()
+                }
                 addRegexFilter(allowedPassSymbolsPattern)
             }
 
-            btnLogin.isEnabled = false
-
             btnLogin.setOnSingleClickListener {
-                vm.login(bivEmail.getInputText().trim(), bivPassword.getInputText().trim())
+                if(isEmailValid()) vm.login(bivEmail.getInputText().trim(), bivPassword.getInputText().trim())
             }
 
             tvRegister.setOnSingleClickListener {
@@ -52,7 +57,8 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
     }
 
     private fun toggleButton() {
-        vb.btnLogin.isEnabled = true
+        vb.btnLogin.isEnabled =
+            !vb.bivEmail.getInputText().isNullOrEmpty() && !vb.bivPassword.getInputText().isNullOrEmpty()
     }
 
     override fun collectFlows() {
@@ -61,6 +67,7 @@ class LoginFragment : BaseNavigatedFragment<AuthVM, FragmentLoginBinding>(
             when (it) {
                 is AuthEvent.LoginSuccess -> {
                     MainAdminActivity.start(requireContext())
+                    requireActivity().finish()
                 }
                 is Event.Notification -> {
                     requireContext().showToast(it.text)

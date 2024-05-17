@@ -15,7 +15,6 @@ class RequestInterceptor @Inject constructor(
         val requestBuilder = chain.request().newBuilder()
 
         requestBuilder.run {
-            addHeader("Content-Type", "application/json")
             addHeader("Authorization", " Bearer " + prefs.token)
         }
         return chain.proceed(requestBuilder.build())

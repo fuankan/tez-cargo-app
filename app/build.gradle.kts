@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     kapt(libs.hiltCompiler)
     implementation(libs.gsonConverter)
+    implementation(libs.gson)
     implementation(libs.okhttpInterceptor)
     implementation(libs.retrofit)
     implementation(libs.glide)

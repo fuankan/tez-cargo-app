@@ -1,6 +1,5 @@
 package kg.fuankan.tezcargo.data.repo
 
-import kg.fuankan.tezcargo.data.local.AppPreferences
 import kg.fuankan.tezcargo.data.models.LoginRequest
 import kg.fuankan.tezcargo.data.network.api.AuthApi
 import kg.fuankan.tezcargo.utils.Dispatcher
@@ -9,8 +8,7 @@ import javax.inject.Inject
 
 class AuthRepo @Inject constructor(
     private val dispatcher: Dispatcher,
-    private val authApi: AuthApi,
-    private val prefs: AppPreferences
+    private val authApi: AuthApi
 ) {
 
     suspend fun login(username: String, password: String) = withContext(dispatcher.io()) {
@@ -20,5 +18,17 @@ class AuthRepo @Inject constructor(
                 password = password
             )
         )
+    }
+
+    suspend fun resetPassword(email: String) = withContext(dispatcher.io()) {
+        authApi.resetPassword(email)
+    }
+
+    suspend fun checkOtp(email: String, otp: String) = withContext(dispatcher.io()) {
+        authApi.checkOtp(email, otp)
+    }
+
+    suspend fun changePassword(email: String, password: String) = withContext(dispatcher.io()) {
+        authApi.changePassword(email, password)
     }
 }

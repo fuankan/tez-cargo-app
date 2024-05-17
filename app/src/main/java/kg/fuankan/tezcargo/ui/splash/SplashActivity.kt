@@ -19,10 +19,12 @@ class SplashActivity : BaseActivity<SplashVM, ActivitySplashBinding>(
         super.onCreate(savedInstanceState)
         when {
             vm.isUserNotAuthenticated() -> {
-                Handler(mainLooper).postDelayed({
-                    AuthActivity.start(this)
-                    finish()
-                }, 2000)
+                AuthActivity.start(this)
+                finish()
+            }
+            else -> {
+                MainAdminActivity.start(this)
+                finish()
             }
         }
     }

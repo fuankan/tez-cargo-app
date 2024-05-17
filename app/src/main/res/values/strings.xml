@@ -56,4 +56,6 @@
     <string name="save">Сохранить</string>
     <string name="find_cargo">Найти груз</string>
 
+    <string name="no_cargo">Нет грузов</string>
+
 </resources>

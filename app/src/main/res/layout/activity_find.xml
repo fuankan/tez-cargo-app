@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/find_activity_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground"
+    tools:context=".ui.main.admin.find.FindActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_cargo"
+            style="@style/Chili.H5.Primary.Bold"
+            android:textColor="@color/blue_5" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_driver_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="textPersonName"
+            android:hint="Имя водителя" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="Имя компании" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_filial_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="Имя филиала" />
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:id="@+id/uiv_loading_unloading_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:hint="@string/loading_unloading_date"
+            tools:text="" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_range_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="Расстояние от" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_range_till"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="Расстояние до" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_price_from"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="Цена от" />
+
+        <com.design2.chili2.view.input.BaseInputView
+            android:id="@+id/biv_price_till"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:inputType="number"
+            android:hint="Цена до" />
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:id="@+id/uiv_choose_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/status"
+            android:layout_marginTop="@dimen/padding_16dp" />
+
+        <Button
+            android:id="@+id/btn_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:text="Найти" />
+
+    </LinearLayout>
+
+</ScrollView>

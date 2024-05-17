@@ -5,7 +5,7 @@ import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
 import javax.inject.Inject
 
-class ResponseInterceptor @Inject constructor(): BaseResponseInterceptor() {
+class ResponseInterceptor @Inject constructor() : BaseResponseInterceptor() {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()

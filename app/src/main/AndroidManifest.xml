@@ -18,7 +18,9 @@
         android:theme="@style/Theme.TezCargo"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.main.admin.find.FindActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.cargo.add.AddCargoActivity"
             android:exported="false" />

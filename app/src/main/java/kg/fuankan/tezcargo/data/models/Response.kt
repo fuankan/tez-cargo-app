@@ -1,7 +1,6 @@
 package kg.fuankan.tezcargo.data.models
 
-data class ApiResponse<T>(
-    val data: T?,
+data class ApiResponse(
     val code: Int?,
     val message: String?
 )

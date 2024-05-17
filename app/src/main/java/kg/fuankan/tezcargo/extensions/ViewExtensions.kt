@@ -1,10 +1,12 @@
 package kg.fuankan.tezcargo.extensions
 
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.DimenRes
+import androidx.annotation.LayoutRes
 
 val TextView.string: String
     get() {
@@ -66,4 +68,9 @@ fun View.setMargin(@DimenRes margin: Int) {
     val marginDp = resources.getDimension(margin).toInt()
     params.setMargins(marginDp, marginDp, marginDp, marginDp)
     layoutParams = params
+}
+
+fun ViewGroup.inflate( @LayoutRes resid: Int): View{
+    return LayoutInflater.from(context)
+        .inflate(resid,this, false)
 }

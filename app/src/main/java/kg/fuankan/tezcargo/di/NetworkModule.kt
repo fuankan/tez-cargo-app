@@ -1,5 +1,6 @@
 package kg.fuankan.tezcargo.di
 
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,14 +11,15 @@ import kg.fuankan.tezcargo.annotations.AuthRetrofit
 import kg.fuankan.tezcargo.annotations.InterceptedWithTokenCheckerOkHttpClient
 import kg.fuankan.tezcargo.annotations.InterceptedWithTokenCheckerRetrofit
 import kg.fuankan.tezcargo.data.network.api.AuthApi
+import kg.fuankan.tezcargo.data.network.api.DeliveryApi
 import kg.fuankan.tezcargo.data.network.interceptors.RequestInterceptor
-import kg.fuankan.tezcargo.data.network.interceptors.ResponseConverterFactory
 import kg.fuankan.tezcargo.data.network.interceptors.ResponseInterceptor
 import kg.fuankan.tezcargo.data.network.interceptors.ResponseInterceptorWithToken
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -28,6 +30,10 @@ class NetworkModule {
     @Provides
     fun provideAuthApi(@AuthRetrofit retrofit: Retrofit): AuthApi =
         retrofit.create(AuthApi::class.java)
+
+    @Provides
+    fun provideDeliveryApi(@AuthRetrofit retrofit: Retrofit): DeliveryApi =
+        retrofit.create(DeliveryApi::class.java)
 
     @Provides
     @AuthCheckOkHttpClient
@@ -49,17 +55,15 @@ class NetworkModule {
     @AuthRetrofit
     @Singleton
     fun provideNoInterceptorRetrofit(
-        @AuthCheckOkHttpClient httpClient: OkHttpClient,
-        converter: ResponseConverterFactory
-    ) = createRetrofit(httpClient, converter)
+        @AuthCheckOkHttpClient httpClient: OkHttpClient
+    ): Retrofit = createRetrofit(httpClient)
 
     @Provides
     @InterceptedWithTokenCheckerRetrofit
     @Singleton
     fun provideInterceptedRetrofit(
-        @InterceptedWithTokenCheckerOkHttpClient httpClient: OkHttpClient,
-        converter: ResponseConverterFactory
-    ) = createRetrofit(httpClient, converter)
+        @InterceptedWithTokenCheckerOkHttpClient httpClient: OkHttpClient
+    ): Retrofit = createRetrofit(httpClient)
 
     private fun createOkHttpClientBuilder(vararg interceptors: Interceptor): OkHttpClient.Builder {
         val interceptor = HttpLoggingInterceptor()
@@ -82,13 +86,10 @@ class NetworkModule {
             }
     }
 
-    private fun createRetrofit(
-        httpClient: OkHttpClient,
-        converter: ResponseConverterFactory
-    ): Retrofit {
+    private fun createRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(converter)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
             .client(httpClient)
             .build()
     }

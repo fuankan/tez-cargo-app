@@ -1,17 +1,17 @@
 package kg.fuankan.tezcargo.data.network.interceptors
 
 import kg.fuankan.tezcargo.data.local.AppPreferences
-import kg.fuankan.tezcargo.data.network.util.ServerErrorHandler
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
+import java.util.concurrent.atomic.AtomicReference
 import javax.inject.Inject
 
 class ResponseInterceptorWithToken @Inject constructor(
-    private val tokenRefresher: TokenRefresher,
-    private val prefs: AppPreferences,
-    private val errorHandler: ServerErrorHandler
+    private val prefs: AppPreferences
 ) : BaseResponseInterceptor() {
+
+    private val lock by lazy { AtomicReference<Any>() }
 
     override fun intercept(chain: Interceptor.Chain): Response {
 
@@ -23,17 +23,7 @@ class ResponseInterceptorWithToken @Inject constructor(
         val isTokenInvalid =
             bodyString != null && bodyString.contains("Could not find any token")
         if (isTokenInvalid) {
-            synchronized(tokenRefresher.lock) {
-//                val result: Boolean = tokenRefresher.refresh()
-                /*if (result) {
-                    val newRequest = request.newBuilder()
-                        .header("Authorization", prefs.token ?: "")
-                        .build()
-                    return chain.proceed(newRequest)
-                } else {
-                    errorHandler.onTokenExpire()
-                }*/
-
+            synchronized(lock) {
                 val newRequest = request.newBuilder()
                     .header("Authorization", prefs.token ?: "")
                     .build()
