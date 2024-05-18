@@ -14,7 +14,6 @@
         style="@style/Chili.H5.Primary.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cargo_desc"
         android:textColor="@color/blue_5"
         android:layout_marginHorizontal="@dimen/padding_16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +27,7 @@
         android:layout_marginEnd="@dimen/padding_16dp"
         android:enabled="false"
         android:text="@string/save"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cargo_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -37,12 +37,8 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/padding_16dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:paddingHorizontal="@dimen/padding_16dp"
-        android:paddingTop="@dimen/padding_16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,16 +51,11 @@
             android:orientation="vertical">
 
             <com.design2.chili2.view.cells.InfoCellView
-                android:id="@+id/icv_cargo_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:subtitle="@string/cargo" />
-
-            <com.design2.chili2.view.cells.InfoCellView
                 android:id="@+id/icv_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/status" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -72,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/price" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -79,27 +71,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/range" />
 
             <com.design2.chili2.view.cells.InfoCellView
-                android:id="@+id/icv_loading_date"
+                android:id="@+id/icv_loading_unloading_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
-                app:subtitle="@string/loading_date" />
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                app:subtitle="@string/loading_unloading_date" />
 
-            <com.design2.chili2.view.cells.InfoCellView
-                android:id="@+id/icv_unloading_date"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_cargo"
+                style="@style/Chili.H7.Primary.Bold"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Адрес груза"
+                android:textColor="@color/blue_5"
                 android:layout_marginTop="@dimen/padding_16dp"
-                app:subtitle="@string/unloading_date" />
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.design2.chili2.view.cells.InfoCellView
                 android:id="@+id/icv_fact_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/fact_address" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -107,6 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/city" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -114,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/state" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -121,6 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/country" />
 
             <com.design2.chili2.view.cells.InfoCellView
@@ -128,14 +131,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/phone" />
+
+            <TextView
+                android:id="@+id/tv_storage"
+                style="@style/Chili.H7.Primary.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Адрес склада"
+                android:textColor="@color/blue_5"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp" />
 
             <com.design2.chili2.view.cells.InfoCellView
                 android:id="@+id/icv_storage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 app:subtitle="@string/storage" />
+
+            <TextView
+                android:id="@+id/tv_storage_address"
+                style="@style/Chili.H7.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Данные склада"
+                android:maxLines="4"
+                android:lineSpacingExtra="@dimen/padding_4dp"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginBottom="@dimen/padding_16dp" />
 
         </LinearLayout>
 

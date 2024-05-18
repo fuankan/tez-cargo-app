@@ -10,8 +10,11 @@ data class CargoDesc(
     var unloadingDate: String? = null,
     var transitRouteDays: Int? = null,
     var deliveryFactAddress: String? = null,
-    var deliveryGeoLocation: String? = null,
+    var deliveryCity: String? = null,
+    var deliveryState: String? = null,
+    var deliveryCountry: String? = null,
     var deliveryPhoneNumber: String? = null,
+    var storageId: Int? = null,
     var storageName: String? = null,
     var storageFactAddress: String? = null,
     var storageGeoLocation: String? = null,
@@ -35,19 +38,27 @@ data class CargoFilter(
 ) : Serializable
 
 data class CargoCreateEdit(
-    var price: Int,
-    var range: Int,
-    var loadingDate: String,
-    var unloadingDate: String,
-    var factAddress: String,
-    var city: String,
-    var state: String,
-    var country: String,
-    var phoneNumber: String,
-    var storageId: Int
+    var price: Int? = null,
+    var range: Int? = null,
+    var loadingDate: String? = null,
+    var unloadingDate: String? = null,
+    var factAddress: String? = null,
+    var city: String? = null,
+    var state: String? = null,
+    var country: String? = null,
+    var phoneNumber: String? = null,
+    var storageId: Int? = null
 ): Serializable
 
-data class Storage(
+data class StorageOption(
     val id: Int,
     val name: String
 ) : Serializable
+
+data class StorageInfo(
+    val storageId: Int,
+    val storageName: String,
+    val storageFactAddress: String,
+    val storageGeoLocation: String,
+    val storagePhoneNumber: String
+): Serializable

@@ -17,8 +17,8 @@ class DeliveryRepo @Inject constructor(
         deliveryApi.createDelivery(requestModel)
     }
 
-    suspend fun editDelivery(requestModel: CargoCreateEdit) = withContext(dispatcher.io()) {
-        deliveryApi.editDelivery(requestModel)
+    suspend fun editDelivery(deliveryId: Int, requestModel: CargoCreateEdit) = withContext(dispatcher.io()) {
+        deliveryApi.editDelivery(deliveryId, requestModel)
     }
 
     suspend fun getDeliveryById(deliveryId: Int) = withContext(dispatcher.io()) {
@@ -36,5 +36,9 @@ class DeliveryRepo @Inject constructor(
 
     suspend fun getStorages() = withContext(dispatcher.io()) {
         deliveryApi.getStorages()
+    }
+
+    suspend fun getStorageInfoById(storageId: Int) = withContext(dispatcher.io()) {
+        deliveryApi.getStorageInfoById(storageId)
     }
 }

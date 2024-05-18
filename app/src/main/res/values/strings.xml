@@ -40,11 +40,12 @@
     <string name="add_cargo">Добавить груз</string>
     <string name="cargo_list">Список грузов</string>
     <string name="cargo">Груз</string>
+    <string name="cargo_with_id">Груз №%d</string>
     <string name="price">Цена</string>
     <string name="range">Расстояние</string>
     <string name="fact_address">Фактический адрес</string>
     <string name="city">Город</string>
-    <string name="state">Штат / Провинция</string>
+    <string name="state">Область</string>
     <string name="country">Страна</string>
     <string name="choose_storage">Выберите склад</string>
     <string name="storage">Склад</string>

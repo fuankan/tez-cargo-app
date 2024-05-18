@@ -15,6 +15,7 @@ import kg.fuankan.tezcargo.domain.model.DeliveryEvent
 import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.ui.base.BaseNavigatedFragment
 import kg.fuankan.tezcargo.ui.cargo.add.AddCargoActivity
+import kg.fuankan.tezcargo.ui.cargo.desc.CargoDescActivity
 import kg.fuankan.tezcargo.ui.main.admin.find.FindActivity
 import kg.fuankan.tezcargo.ui.main.admin.packages.adapter.CargoListAdapter
 
@@ -41,11 +42,20 @@ class PackagesAdminFragment : BaseNavigatedFragment<PackagesAdminVM, FragmentPac
         }
     }
 
+    private val cargoDescActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            vm.filterCargo(vm.cargoFilter)
+        }
+    }
+
     override fun setupViews() {
         super.setupViews()
         adapter = CargoListAdapter(object : CargoListAdapter.CargoClickListener {
             override fun onCargoClick(cargo: CargoDesc) {
-                // Обработка клика по элементу CargoDesc
+                val intent = Intent(requireContext(), CargoDescActivity::class.java).apply {
+                    putExtra(CargoDescActivity.EXTRA_CARGO_DESC, cargo)
+                }
+                cargoDescActivityResultLauncher.launch(intent)
             }
         })
 

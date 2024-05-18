@@ -105,6 +105,14 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:text="Найти" />
 
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сбросить фильтры"
+            style="@style/Chili.ButtonStyle.Secondary"
+            android:layout_marginTop="@dimen/padding_16dp" />
+
     </LinearLayout>
 
 </ScrollView>

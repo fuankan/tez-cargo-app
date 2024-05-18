@@ -5,7 +5,8 @@ import kg.fuankan.tezcargo.data.models.CargoCreateEdit
 import kg.fuankan.tezcargo.data.models.CargoDesc
 import kg.fuankan.tezcargo.data.models.CargoFilter
 import kg.fuankan.tezcargo.data.models.DeliveryStatus
-import kg.fuankan.tezcargo.data.models.Storage
+import kg.fuankan.tezcargo.data.models.StorageInfo
+import kg.fuankan.tezcargo.data.models.StorageOption
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -18,10 +19,10 @@ interface DeliveryApi {
     suspend fun createDelivery(@Body createRequest: CargoCreateEdit): ApiResponse
 
     @PUT("/api/v1/delivery")
-    suspend fun editDelivery(@Body editRequest: CargoCreateEdit): ApiResponse
+    suspend fun editDelivery(@Query("deliveryId") deliveryId: Int, @Body editRequest: CargoCreateEdit): ApiResponse
 
     @GET("/api/v1/delivery")
-    suspend fun getDeliveryById(@Query("deliveryId") deliveryId: Int): CargoDesc
+    suspend fun getDeliveryById(@Query("id") deliveryId: Int): CargoDesc
 
     @PUT("/api/v1/delivery/status")
     suspend fun changeDeliveryStatus(@Query("deliveryId") deliveryId: Int, @Query("status") status: DeliveryStatus): ApiResponse
@@ -30,6 +31,8 @@ interface DeliveryApi {
     suspend fun getFilteredDeliveries(@Body cargoFilter: CargoFilter): List<CargoDesc>
 
     @GET("/api/v1/options/storages")
-    suspend fun getStorages(): List<Storage>
+    suspend fun getStorages(): List<StorageOption>
 
+    @GET("/api/v1/storage")
+    suspend fun getStorageInfoById(@Query("id") storageId: Int): StorageInfo
 }

@@ -1,6 +1,7 @@
 package kg.fuankan.tezcargo.ui.main.admin.find
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.FragmentResultListener
@@ -8,9 +9,8 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.modals.picker.RangeDatePickerDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.data.models.CargoFilter
+import kg.fuankan.tezcargo.data.models.DeliveryStatus
 import kg.fuankan.tezcargo.databinding.ActivityFindBinding
-import kg.fuankan.tezcargo.domain.model.DeliveryEvent
-import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.extensions.toCalendarOrNow
 import kg.fuankan.tezcargo.ui.base.BaseActivity
 import java.text.SimpleDateFormat
@@ -90,7 +90,7 @@ class FindActivity : BaseActivity<FindVM, ActivityFindBinding>(
             uivChooseStatus.apply {
                 setText(vm.cargoFilter?.statuses?.joinToString { it.status })
                 setOnSingleClickListener {
-
+                    showStatusPicker()
                 }
             }
 
@@ -113,7 +113,46 @@ class FindActivity : BaseActivity<FindVM, ActivityFindBinding>(
                 setResult(Activity.RESULT_OK, resultIntent)
                 finish()
             }
+
+            btnReset.setOnSingleClickListener {
+                val resultIntent = Intent().apply {
+                    putExtra(EXTRA_CARGO_FILTER, CargoFilter(statuses = emptyList()))
+                }
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
+            }
         }
+    }
+
+    private fun showStatusPicker() {
+        val statuses = DeliveryStatus.entries.toTypedArray()
+        val statusLabels = statuses.map { it.status }.toTypedArray()
+        val selectedStatuses = vm.cargoFilter?.statuses?.toMutableList() ?: mutableListOf()
+
+        val selectedItems = BooleanArray(statuses.size) { index ->
+            selectedStatuses.contains(statuses[index])
+        }
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Выберите статусы")
+        builder.setMultiChoiceItems(statusLabels, selectedItems) { _, which, isChecked ->
+            if (isChecked) {
+                selectedStatuses.add(statuses[which])
+            } else {
+                selectedStatuses.remove(statuses[which])
+            }
+        }
+
+        builder.setPositiveButton("OK") { _, _ ->
+            val selectedStatusString = selectedStatuses.joinToString { it.status }
+            vb.uivChooseStatus.setText(selectedStatusString)
+            toggleButton()
+            vm.cargoFilter?.statuses = selectedStatuses
+        }
+
+        builder.setNegativeButton("Отмена", null)
+
+        builder.create().show()
     }
 
     private fun toggleButton() {

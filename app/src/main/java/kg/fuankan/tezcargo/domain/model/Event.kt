@@ -3,6 +3,8 @@ package kg.fuankan.tezcargo.domain.model
 import androidx.annotation.StringRes
 import kg.fuankan.tezcargo.data.models.CargoDesc
 import kg.fuankan.tezcargo.data.models.CargoFilter
+import kg.fuankan.tezcargo.data.models.StorageInfo
+import kg.fuankan.tezcargo.data.models.StorageOption
 
 sealed class Event {
     object Success : Event()
@@ -24,4 +26,8 @@ sealed class DeliveryEvent: Event() {
     class DeliveryUpdated(val note: String? = null) : DeliveryEvent()
     class DeliveryFiltered(val filters: CargoFilter? = null) : DeliveryEvent()
     class FilteredDeliveryList(val list: List<CargoDesc>? = null) : DeliveryEvent()
+    class StoragesOptionList(val list: List<StorageOption>? = null) : DeliveryEvent()
+    class DeliveryById(val cargoDesc: CargoDesc) : DeliveryEvent()
+    class StorageInfoFetched(val storageInfo: StorageInfo? = null) : DeliveryEvent()
+    class DeliveryStatusChanged(val note: String? = null) : DeliveryEvent()
 }
