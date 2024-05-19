@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
-                app:subtitle="Статистика"
+                app:subtitle="Отчеты"
                 app:title=" " />
 
             <com.design2.chili2.view.cells.InfoCellView

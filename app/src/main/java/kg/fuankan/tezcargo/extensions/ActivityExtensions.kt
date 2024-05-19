@@ -1,5 +1,7 @@
 package kg.fuankan.tezcargo.extensions
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -15,4 +17,9 @@ fun <T> AppCompatActivity.collectFlow(flow: Flow<T?>, call: suspend (emission: T
             }
         }
     }
+}
+
+fun Activity.finishWithResult(data: Intent? = null) {
+    setResult(AppCompatActivity.RESULT_OK, data)
+    finish()
 }

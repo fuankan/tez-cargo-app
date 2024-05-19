@@ -3,6 +3,7 @@ package kg.fuankan.tezcargo.data.network.api
 import kg.fuankan.tezcargo.data.models.ApiResponse
 import kg.fuankan.tezcargo.data.models.LoginRequest
 import kg.fuankan.tezcargo.data.models.LoginResponse
+import kg.fuankan.tezcargo.data.models.UserData
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -21,4 +22,7 @@ interface AuthApi {
 
     @GET("/api/v1/auth/change-password")
     suspend fun changePassword(@Query("email") email: String, @Query("password") password: String): ApiResponse
+
+    @GET("/api/v1/user")
+    suspend fun getUserData(@Query("id") id: Int): UserData
 }

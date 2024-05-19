@@ -5,6 +5,7 @@ import kg.fuankan.tezcargo.data.models.CargoCreateEdit
 import kg.fuankan.tezcargo.data.models.CargoDesc
 import kg.fuankan.tezcargo.data.models.CargoFilter
 import kg.fuankan.tezcargo.data.models.DeliveryStatus
+import kg.fuankan.tezcargo.data.models.DriverInfo
 import kg.fuankan.tezcargo.data.models.StorageInfo
 import kg.fuankan.tezcargo.data.models.StorageOption
 import retrofit2.http.Body
@@ -35,4 +36,16 @@ interface DeliveryApi {
 
     @GET("/api/v1/storage")
     suspend fun getStorageInfoById(@Query("id") storageId: Int): StorageInfo
+
+    @PUT("/api/v1/driver/verify")
+    suspend fun verifyDriver(@Query("driverId") driverId: Int, @Query("isVerified") isVerified: Boolean): ApiResponse
+
+    @GET("/api/v1/driver/requests")
+    suspend fun getDriverRequests(): List<DriverInfo>
+
+    @GET("/api/v1/driver/accepted")
+    suspend fun getAcceptedDrivers(): List<DriverInfo>
+
+    @GET("/api/v1/options/accounting")
+    suspend fun getAccounting(@Query("type") type: String): ApiResponse
 }

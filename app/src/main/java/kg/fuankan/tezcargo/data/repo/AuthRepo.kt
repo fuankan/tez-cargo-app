@@ -31,4 +31,8 @@ class AuthRepo @Inject constructor(
     suspend fun changePassword(email: String, password: String) = withContext(dispatcher.io()) {
         authApi.changePassword(email, password)
     }
+
+    suspend fun getUserData(id: Int) = withContext(dispatcher.io()) {
+        authApi.getUserData(id)
+    }
 }

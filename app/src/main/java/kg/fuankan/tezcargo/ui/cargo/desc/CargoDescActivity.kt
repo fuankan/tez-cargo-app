@@ -16,6 +16,7 @@ import kg.fuankan.tezcargo.data.models.*
 import kg.fuankan.tezcargo.databinding.ActivityCargoDescBinding
 import kg.fuankan.tezcargo.domain.model.DeliveryEvent
 import kg.fuankan.tezcargo.extensions.collectFlow
+import kg.fuankan.tezcargo.extensions.finishWithResult
 import kg.fuankan.tezcargo.extensions.showToast
 import kg.fuankan.tezcargo.extensions.toCalendarOrNow
 import kg.fuankan.tezcargo.ui.base.BaseActivity
@@ -30,6 +31,9 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        intent.getSerializableExtra(EXTRA_CARGO_DESC)?.let { cargoDesc ->
+            vm.cargoDescId = (cargoDesc as CargoDesc).deliveryId
+        }
         collectFlows()
         supportFragmentManager.setFragmentResultListener(RangeDatePickerDialog.RANGE_PICKER_DIALOG_RESULT, this, this)
         vm.getDeliveryById(vm.cargoDescId ?: 1)
@@ -155,16 +159,17 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
                 is DeliveryEvent.DeliveryById -> setupViews(it.cargoDesc)
                 is DeliveryEvent.StorageInfoFetched -> updateStorageInfo(it.storageInfo)
                 is DeliveryEvent.StoragesOptionList -> showStorageOptions(it.list)
-                is DeliveryEvent.DeliveryUpdated -> finishWithResult()
-                is DeliveryEvent.DeliveryStatusChanged -> finishWithResult()
+                is DeliveryEvent.DeliveryUpdated -> {
+                    it.note?.let { note -> showToast(note) }
+                    finishWithResult()
+                }
+                is DeliveryEvent.DeliveryStatusChanged -> {
+                    it.note?.let { note -> showToast(note) }
+                    finishWithResult()
+                }
                 else -> {}
             }
         }
-    }
-
-    private fun finishWithResult(data: Intent? = null) {
-        setResult(RESULT_OK, data)
-        finish()
     }
 
     private fun updateStorageInfo(storageInfo: StorageInfo?) {
@@ -207,6 +212,11 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
             vb.icvLoadingUnloadingDate.setTitle("$startDate/$endDate")
             enableSaveButton()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        vm.clearViewModel()
     }
 
     companion object {

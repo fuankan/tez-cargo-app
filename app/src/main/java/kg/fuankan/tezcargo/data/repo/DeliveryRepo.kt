@@ -1,5 +1,6 @@
 package kg.fuankan.tezcargo.data.repo
 
+import kg.fuankan.tezcargo.data.models.ApiResponse
 import kg.fuankan.tezcargo.data.models.CargoCreateEdit
 import kg.fuankan.tezcargo.data.models.CargoFilter
 import kg.fuankan.tezcargo.data.models.DeliveryStatus
@@ -40,5 +41,21 @@ class DeliveryRepo @Inject constructor(
 
     suspend fun getStorageInfoById(storageId: Int) = withContext(dispatcher.io()) {
         deliveryApi.getStorageInfoById(storageId)
+    }
+
+    suspend fun verifyDriver(driverId: Int, isVerified: Boolean) = withContext(dispatcher.io()) {
+        deliveryApi.verifyDriver(driverId, isVerified)
+    }
+
+    suspend fun getDriverRequests() = withContext(dispatcher.io()) {
+        deliveryApi.getDriverRequests()
+    }
+
+    suspend fun getAcceptedDrivers() = withContext(dispatcher.io()) {
+        deliveryApi.getAcceptedDrivers()
+    }
+
+    suspend fun getAccounting(type: String) = withContext(dispatcher.io()) {
+        deliveryApi.getAccounting(type)
     }
 }

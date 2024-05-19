@@ -29,6 +29,12 @@ class CargoDescVM @Inject constructor(
     val cargoDesc: CargoDesc?
         get() = _cargoDescFlow.value
 
+    fun clearViewModel() {
+        cargoDescId = null
+        originalStatus = null
+        _cargoDescFlow.value = null
+    }
+
     fun getDeliveryById(deliveryId: Int) {
         showLoading()
         launchWithErrorHandling({

@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.data.models.CargoFilter
 import kg.fuankan.tezcargo.data.models.DeliveryStatus
 import kg.fuankan.tezcargo.databinding.ActivityFindBinding
+import kg.fuankan.tezcargo.extensions.showToast
 import kg.fuankan.tezcargo.extensions.toCalendarOrNow
 import kg.fuankan.tezcargo.ui.base.BaseActivity
 import java.text.SimpleDateFormat
@@ -107,6 +108,8 @@ class FindActivity : BaseActivity<FindVM, ActivityFindBinding>(
                     statuses = uivChooseStatus.getInputText()
                 )
 
+                showToast("Фильтр применен")
+
                 val resultIntent = Intent().apply {
                     putExtra(EXTRA_CARGO_FILTER, filter)
                 }
@@ -115,6 +118,7 @@ class FindActivity : BaseActivity<FindVM, ActivityFindBinding>(
             }
 
             btnReset.setOnSingleClickListener {
+                showToast("Фильтр сброшен")
                 val resultIntent = Intent().apply {
                     putExtra(EXTRA_CARGO_FILTER, CargoFilter(statuses = emptyList()))
                 }

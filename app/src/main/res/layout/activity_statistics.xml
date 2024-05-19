@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground"
+    tools:context=".ui.statistics.StatisticsActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Статистика"
+        android:textAppearance="@style/Chili.H5.Primary.Bold"
+        android:textColor="@color/blue_5"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginStart="@dimen/padding_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+        <com.design2.chili2.view.cells.InfoCellView
+            android:id="@+id/icv_total_deliveries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:subtitle="Общее количество доставок"
+            app:title="" />
+
+        <com.design2.chili2.view.cells.InfoCellView
+            android:id="@+id/icv_best_drivers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:subtitle="Лучшие водители"
+            app:title="" />
+
+        <com.design2.chili2.view.cells.InfoCellView
+            android:id="@+id/icv_deliveries_total_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:subtitle="Общее сумма доставок"
+            app:title="" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

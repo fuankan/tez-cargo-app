@@ -11,3 +11,9 @@ enum class DeliveryStatus(val status: String) {
     CANCELED("Отменен"),
     DELIVERED("Доставлен")
 }
+
+enum class AccountingType {
+    TOTAL_DELIVERED,
+    BEST_DRIVERS,
+    DELIVERIES_TOTAL_AMOUNT
+}

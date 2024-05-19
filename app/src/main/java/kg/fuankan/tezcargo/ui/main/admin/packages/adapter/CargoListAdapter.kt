@@ -25,7 +25,7 @@ class CargoListAdapter(private val listener: CargoClickListener) : BaseAdapter<C
     }
 }
 
-class CargoListVH(
+class CargoListVH private constructor(
     private val vb: ItemCargoMainBinding,
     private val listener: CargoListAdapter.CargoClickListener
 ) : RecyclerView.ViewHolder(vb.root) {

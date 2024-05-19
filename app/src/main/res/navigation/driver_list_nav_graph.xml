@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/driver_list_nav_graph"
+    app:startDestination="@id/driverListFragment">
+
+    <fragment
+        android:id="@+id/driverListFragment"
+        android:name="kg.fuankan.tezcargo.ui.driver_list.main.DriverListFragment"
+        android:label="fragment_driver_list"
+        tools:layout="@layout/fragment_driver_list">
+        <action
+            android:id="@+id/action_driverListFragment_to_verificationDriverListFragment"
+            app:destination="@id/verificationDriverListFragment" />
+
+        <action
+            android:id="@+id/action_driverListFragment_to_acceptedDriverListFragment"
+            app:destination="@id/acceptedDriverListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verificationDriverListFragment"
+        android:name="kg.fuankan.tezcargo.ui.driver_list.verification.VerificationDriverListFragment"
+        android:label="fragment_verification_driver_list"
+        tools:layout="@layout/fragment_verification_driver_list" />
+
+    <fragment
+        android:id="@+id/acceptedDriverListFragment"
+        android:name="kg.fuankan.tezcargo.ui.driver_list.accepted.AcceptedDriverListFragment"
+        android:label="fragment_accepted_driver_list"
+        tools:layout="@layout/fragment_accepted_driver_list" />
+
+</navigation>

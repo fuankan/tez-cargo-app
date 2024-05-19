@@ -48,6 +48,13 @@ class PackagesAdminFragment : BaseNavigatedFragment<PackagesAdminVM, FragmentPac
         }
     }
 
+    private val addCargoActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            vm.cargoFilter = CargoFilter()
+            vm.filterCargo(vm.cargoFilter)
+        }
+    }
+
     override fun setupViews() {
         super.setupViews()
         adapter = CargoListAdapter(object : CargoListAdapter.CargoClickListener {
@@ -64,7 +71,7 @@ class PackagesAdminFragment : BaseNavigatedFragment<PackagesAdminVM, FragmentPac
             rvCargo.adapter = adapter
 
             btnAddCargo.setOnSingleClickListener {
-                AddCargoActivity.start(requireContext())
+                addCargoActivityResultLauncher.launch(Intent(requireContext(), AddCargoActivity::class.java))
             }
 
             btnFind.setOnSingleClickListener {

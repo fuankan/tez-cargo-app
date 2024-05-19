@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.LayoutRes
+import androidx.appcompat.content.res.AppCompatResources
+import com.design2.chili2.R
+import com.design2.chili2.util.RoundedCornerMode
 
 val TextView.string: String
     get() {
@@ -73,4 +76,21 @@ fun View.setMargin(@DimenRes margin: Int) {
 fun ViewGroup.inflate( @LayoutRes resid: Int): View{
     return LayoutInflater.from(context)
         .inflate(resid,this, false)
+}
+
+fun View.setIsSurfaceClickable(isSurfaceClickable: Boolean, cornerMode: Int? = null) {
+    isClickable = isSurfaceClickable
+    isFocusable = isSurfaceClickable
+    setRippleForeground(cornerMode, isSurfaceClickable)
+}
+
+fun View.setRippleForeground(cornerMode: Int? = null, isSurfaceClickable: Boolean) {
+    foreground = if (isSurfaceClickable) {
+        when (cornerMode) {
+            RoundedCornerMode.TOP.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_top_corner_foreground)
+            RoundedCornerMode.MIDDLE.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_middle_corner_foreground)
+            RoundedCornerMode.BOTTOM.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_bottom_corner_background)
+            else -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
+        }
+    } else  null
 }

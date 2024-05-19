@@ -66,8 +66,5 @@ class AppPreferences(context: Context) {
         const val REFRESH_TOKEN = "refresh_token"
         const val ROLE = "role"
         const val USER_ID = "user_id"
-
-        @SuppressLint("ConstantLocale")
-        private val dateFormat = SimpleDateFormat("dd:MM:yyyy HH:mm:ss", Locale("ru"))
     }
 }

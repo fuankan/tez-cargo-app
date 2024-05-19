@@ -42,16 +42,8 @@
         <com.design2.chili2.view.input.UneditableInputView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/loading_date"
-            android:id="@+id/uiv_loading_date"
-            android:layout_marginTop="@dimen/padding_16dp"
-            tools:text="" />
-
-        <com.design2.chili2.view.input.UneditableInputView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/unloading_date"
-            android:id="@+id/uiv_unloading_date"
+            android:hint="@string/loading_unloading_date"
+            android:id="@+id/uiv_loading_unloading_date"
             android:layout_marginTop="@dimen/padding_16dp"
             tools:text="" />
 

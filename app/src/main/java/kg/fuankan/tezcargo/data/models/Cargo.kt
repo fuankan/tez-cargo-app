@@ -62,3 +62,12 @@ data class StorageInfo(
     val storageGeoLocation: String,
     val storagePhoneNumber: String
 ): Serializable
+
+data class DriverInfo(
+    val userId: Int? = null,
+    val driverId: Int? = null,
+    val name: String? = null,
+    val phoneNumber: String? = null,
+    val pin: Long? = null,
+    val photo: String? = null
+): Serializable
