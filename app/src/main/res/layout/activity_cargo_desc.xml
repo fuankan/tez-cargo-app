@@ -9,14 +9,28 @@
     android:background="?ChiliSurfaceBackground"
     android:paddingVertical="@dimen/padding_16dp">
 
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_blue"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginStart="@dimen/padding_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_cargo_desc"
         style="@style/Chili.H5.Primary.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/blue_5"
         android:layout_marginHorizontal="@dimen/padding_16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/blue_5"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_back"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintEnd_toStartOf="@id/btn_save"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -31,7 +45,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_cargo_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_cargo_desc"
         app:layout_constraintTop_toTopOf="@+id/tv_cargo_desc" />
 
     <androidx.core.widget.NestedScrollView

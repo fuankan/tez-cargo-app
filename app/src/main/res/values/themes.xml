@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TezCargo" parent="ChiliDesignTheme">
+    <style name="Base.Theme.TezCargo" parent="ChiliDesignThemeDay">
         <item name="windowColor">@color/white_1</item>
         <item name="surfaceColor">@color/white_1</item>
         <item name="surfaceDarkColor">@color/gray_4</item>

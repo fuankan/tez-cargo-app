@@ -33,6 +33,8 @@ class FindActivity : BaseActivity<FindVM, ActivityFindBinding>(
 
     private fun setupViews() {
         with(vb) {
+            ivBack.setOnSingleClickListener { onBackPressedDispatcher.onBackPressed() }
+
             btnFind.isEnabled = false
 
             bivDriverName.apply {

@@ -37,6 +37,10 @@ class ChangePasswordActivity : BaseActivity<ChangePasswordVM, ActivityChangePass
                 setMaxLength(12)
             }
 
+            ivBack.setOnClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
+
             btnChange.setOnClickListener {
                 if (bivInput.getInputText().isNotEmpty()) {
                     vm.changePassword(bivInput.getInputText())

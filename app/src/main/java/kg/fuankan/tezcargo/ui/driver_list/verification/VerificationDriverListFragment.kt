@@ -27,6 +27,9 @@ class VerificationDriverListFragment : BaseNavigatedFragment<DriverListVM, Fragm
         super.onViewCreated(view, savedInstanceState)
         vm.getDriverRequests()
         setupRecyclerView()
+        vb.ivBack.setOnClickListener {
+            navigateUp()
+        }
     }
 
     private fun setupRecyclerView() {

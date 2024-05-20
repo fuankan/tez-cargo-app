@@ -41,6 +41,7 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
 
     private fun setupViews(cargoDesc: CargoDesc) {
         with(vb) {
+            ivBack.setOnSingleClickListener { onBackPressedDispatcher.onBackPressed() }
             tvCargoDesc.text = getString(R.string.cargo_with_id, cargoDesc.deliveryId)
             icvStatus.setTitle(cargoDesc.deliveryStatus?.status ?: "")
             icvPrice.setTitle("${cargoDesc.price ?: ""} с")

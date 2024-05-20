@@ -20,6 +20,10 @@ class DriverListFragment : BaseNavigatedFragment<DriverListVM, FragmentDriverLis
             bcvDriversAccepted.setOnClickListener {
                 navigateTo(DriverListFragmentDirections.actionDriverListFragmentToAcceptedDriverListFragment())
             }
+
+            ivBack.setOnClickListener {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 }

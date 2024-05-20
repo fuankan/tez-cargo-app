@@ -1,5 +1,6 @@
 package kg.fuankan.tezcargo.ui.main.admin.menu
 
+import androidx.appcompat.app.AlertDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kg.fuankan.tezcargo.databinding.FragmentMenuAdminBinding
 import kg.fuankan.tezcargo.domain.model.AuthEvent
@@ -30,9 +31,19 @@ class MenuAdminFragment : BaseNavigatedFragment<MenuAdminVM, FragmentMenuAdminBi
                 ChangePasswordActivity.start(requireContext())
             }
             icvCargoId4.setOnClickListener {
-                vm.logout()
+                logout()
             }
         }
+    }
+
+    private fun logout() {
+        AlertDialog.Builder(requireContext())
+            .setMessage("Вы действительно хотите выйти?")
+            .setPositiveButton("Да") { _, _ ->
+                vm.logout()
+            }
+            .setNegativeButton("Нет", null)
+            .show()
     }
 
     override fun collectFlows() {

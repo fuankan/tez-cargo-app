@@ -37,6 +37,10 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
             icvDeliveriesTotalAmount.setOnSingleClickListener {
                 vm.getAccounting(AccountingType.DELIVERIES_TOTAL_AMOUNT.name)
             }
+
+            ivBack.setOnSingleClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 

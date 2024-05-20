@@ -35,6 +35,9 @@ class AddCargoActivity : BaseActivity<AddCargoVM, ActivityAddCargoBinding>(
 
     private fun setupViews() {
         with(vb) {
+            ivBack.setOnSingleClickListener {
+                onBackPressedDispatcher.onBackPressed()
+            }
             bivPrice.doAfterTextChanged {
                 vm.createModel.price = it.toString().toIntOrNull()
                 vm.updateForm()
