@@ -14,7 +14,7 @@ abstract class BaseResponseInterceptor : Interceptor {
 
     protected fun checkForCustomServerException(response: Response, bodyString: String?) {
         if(response.code == 500) {
-            throw ApiException("Server error")
+            throw ApiException("Что-то пошло не так")
         } else if (response.code != 200) {
             val jsonElement = JsonParser.parseString(bodyString)
             if (jsonElement.isJsonObject) {

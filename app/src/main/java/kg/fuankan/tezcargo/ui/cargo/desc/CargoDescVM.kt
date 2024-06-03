@@ -100,6 +100,10 @@ class CargoDescVM @Inject constructor(
         _cargoDescFlow.value = _cargoDescFlow.value?.copy(deliveryStatus = newStatus)
     }
 
+    fun updateStorageId(newStorageId: Int) {
+        _cargoDescFlow.value = _cargoDescFlow.value?.copy(storageId = newStorageId)
+    }
+
     fun saveChanges() {
         launchWithErrorHandling({
             val currentCargoDesc = _cargoDescFlow.value

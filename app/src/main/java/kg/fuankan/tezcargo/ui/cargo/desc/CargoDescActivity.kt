@@ -54,6 +54,11 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
             icvPhone.setTitle(cargoDesc.deliveryPhoneNumber ?: "")
             icvStorage.setTitle(cargoDesc.storageName ?: "")
             tvStorageAddress.text = "${cargoDesc.storageFactAddress}\n${cargoDesc.storageGeoLocation}\n${cargoDesc.storagePhoneNumber}"
+            if(cargoDesc.driverPhoneNumber?.contains("Нет водителя") == true) {
+                tvDriverData.text = "${cargoDesc.driverName}"
+            } else {
+                tvDriverData.text = "${cargoDesc.driverName}\n${cargoDesc.driverPhoneNumber}"
+            }
 
             icvStatus.setOnSingleClickListener { showStatusPicker() }
             icvPrice.setOnSingleClickListener { showInputDialog("Price") { newValue -> vm.updatePrice(newValue) } }
@@ -190,6 +195,7 @@ class CargoDescActivity : BaseActivity<CargoDescVM, ActivityCargoDescBinding>(
                 .setItems(storageNames) { dialog, which ->
                     val selectedStorage = storageOptions[which]
                     vm.getStorageInfoById(selectedStorage.id)
+                    vm.updateStorageId(selectedStorage.id)
                     vb.icvStorage.setTitle(selectedStorage.name)
                     dialog.dismiss()
                 }
