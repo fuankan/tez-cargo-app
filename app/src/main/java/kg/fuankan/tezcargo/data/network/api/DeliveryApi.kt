@@ -46,6 +46,6 @@ interface DeliveryApi {
     @GET("/api/v1/driver/accepted")
     suspend fun getAcceptedDrivers(): List<DriverInfo>
 
-    @GET("/api/v1/options/accounting")
+    @GET("/api/v1/report")
     suspend fun getAccounting(@Query("type") type: String): ApiResponse
 }

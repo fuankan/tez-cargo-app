@@ -13,7 +13,8 @@ enum class DeliveryStatus(val status: String) {
 }
 
 enum class AccountingType {
-    TOTAL_DELIVERED,
-    BEST_DRIVERS,
-    DELIVERIES_TOTAL_AMOUNT
+    DRIVER_BASIC,
+    DRIVER_DELIVERIES,
+    DELIVERY,
+    STORAGE
 }

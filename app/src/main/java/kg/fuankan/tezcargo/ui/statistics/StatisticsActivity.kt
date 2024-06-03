@@ -26,16 +26,20 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
 
     private fun setupViews() {
         with(vb) {
-            icvBestDrivers.setOnSingleClickListener {
-                vm.getAccounting(AccountingType.BEST_DRIVERS.name)
+            icvAboutDrivers.setOnSingleClickListener {
+                vm.getAccounting(AccountingType.DRIVER_BASIC.name)
             }
 
-            icvTotalDeliveries.setOnSingleClickListener {
-                vm.getAccounting(AccountingType.TOTAL_DELIVERED.name)
+            icvAboutDriversDeliveries.setOnSingleClickListener {
+                vm.getAccounting(AccountingType.DRIVER_DELIVERIES.name)
             }
 
-            icvDeliveriesTotalAmount.setOnSingleClickListener {
-                vm.getAccounting(AccountingType.DELIVERIES_TOTAL_AMOUNT.name)
+            icvAboutDeliveries.setOnSingleClickListener {
+                vm.getAccounting(AccountingType.DELIVERY.name)
+            }
+
+            icvAboutStorage.setOnSingleClickListener {
+                vm.getAccounting(AccountingType.STORAGE.name)
             }
 
             ivBack.setOnSingleClickListener {

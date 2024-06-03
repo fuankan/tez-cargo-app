@@ -41,32 +41,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title">
 
-        <com.design2.chili2.view.cells.InfoCellView
-            android:id="@+id/icv_total_deliveries"
+        <com.design2.chili2.view.cells.BaseCellView
+            android:id="@+id/icv_about_drivers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:subtitle="Общее количество доставок"
-            app:title="" />
+            app:isDividerVisible="false"
+            app:title="По водителям" />
 
-        <com.design2.chili2.view.cells.InfoCellView
-            android:id="@+id/icv_best_drivers"
+        <com.design2.chili2.view.cells.BaseCellView
+            android:id="@+id/icv_about_drivers_deliveries"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:subtitle="Лучшие водители"
-            app:title="" />
+            app:isDividerVisible="false"
+            app:title="По водителям и их грузоперевозкам" />
 
-        <com.design2.chili2.view.cells.InfoCellView
-            android:id="@+id/icv_deliveries_total_amount"
+        <com.design2.chili2.view.cells.BaseCellView
+            android:id="@+id/icv_about_deliveries"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:subtitle="Общее сумма доставок"
-            app:title="" />
+            app:isDividerVisible="false"
+            app:title="По грузоперевозкам" />
+
+        <com.design2.chili2.view.cells.BaseCellView
+            android:id="@+id/icv_about_storage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:isDividerVisible="false"
+            app:title="По складам" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
