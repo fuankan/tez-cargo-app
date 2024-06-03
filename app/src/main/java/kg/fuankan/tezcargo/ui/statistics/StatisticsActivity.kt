@@ -11,12 +11,15 @@ import kg.fuankan.tezcargo.databinding.ActivityStatisticsBinding
 import kg.fuankan.tezcargo.domain.model.DeliveryEvent
 import kg.fuankan.tezcargo.extensions.collectFlow
 import kg.fuankan.tezcargo.ui.base.BaseActivity
+import androidx.browser.customtabs.CustomTabsIntent
 
 @AndroidEntryPoint
 class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>(
     StatisticsVM::class.java,
     ActivityStatisticsBinding::inflate
 ) {
+
+    private var shouldLaunchUrl = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,11 +64,18 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
     }
 
     private fun openUrl(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse(url)
+        if (shouldLaunchUrl) {
+            shouldLaunchUrl = false
+            val builder = CustomTabsIntent.Builder()
+            val customTabsIntent = builder.build()
+            customTabsIntent.intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+            customTabsIntent.launchUrl(this, Uri.parse(url))
         }
-        startActivity(intent)
+    }
 
+    override fun onResume() {
+        super.onResume()
+        shouldLaunchUrl = true
     }
 
     companion object {
