@@ -19,7 +19,7 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
     ActivityStatisticsBinding::inflate
 ) {
 
-    private var shouldLaunchUrl = true
+    private var shouldLaunchUrl = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +56,10 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
         collectFlow(vm.event) {
             when (it) {
                 is DeliveryEvent.AccountingFetched -> {
-                    it.url?.let { url -> openUrl(url) }
+                    it.url?.let { url ->
+                        shouldLaunchUrl = true
+                        openUrl(url)
+                    }
                 }
                 else -> {}
             }
@@ -71,11 +74,6 @@ class StatisticsActivity : BaseActivity<StatisticsVM, ActivityStatisticsBinding>
             customTabsIntent.intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
             customTabsIntent.launchUrl(this, Uri.parse(url))
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        shouldLaunchUrl = true
     }
 
     companion object {
